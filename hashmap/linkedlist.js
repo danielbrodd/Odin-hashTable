@@ -37,7 +37,7 @@ class LinkedList {
         }
         return size
     };
-     getHead() {
+    getHead() {
         console.log(this.head);
         return this.head.value
     };
@@ -148,12 +148,16 @@ class LinkedList {
         previous.next = newNode;
     };
     removeAt(index) {
-        if (index < 0) throw new Error("Cannot handel negative index");
+        if (index < 0) throw new Error("Cannot handle negative index");
 
         let current = this.head;
         let previous = null;
         let counter = 0;
         
+        if (index === 0) {
+            this.head = this.head.next;
+            return;
+        }
         while(counter < index) {
             counter++
             previous = current;
